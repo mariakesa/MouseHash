@@ -1,1 +1,1 @@
-![alt text](https://github.com/mariakesa/MouseHash/blob/main/mousehash.webp | width=100)
+<img src="https://github.com/mariakesa/MouseHash/blob/main/mousehash.webp" alt="alt text" width="300" />
