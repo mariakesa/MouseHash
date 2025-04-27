@@ -12,31 +12,28 @@ class IBLSingleton:
         return cls._instance
 
 class IBLApiLoader(ABC):
+    def __init__(self, API_singleton):
+        self.ibl_api = API_singleton
+
     @abstractmethod
     def load(self):
         pass
-    def get_eids(self, one):
-        eids = one.search(dataset='channels.mlapdv')
+    def get_eids(self):
+        eids = self.ibl_api.search(dataset='channels.mlapdv')
         return eids
 
 class ProbeLocationLoader(IBLApiLoader):
-    def __init__(self, API_singleton):
-        self.ibl_api = API_singleton
     
     def load(self):
-        eids=self.get_eids(self.ibl_api)
+        eids=self.get_eids()
     
 class SpikeDataLoader(IBLApiLoader):
-    def __init__(self, API_singleton):
-        self.ibl_api = API_singleton
 
     def load(self):
         return "Spike data loaded"
     
 class BehaviorDataLoader(IBLApiLoader):
-    def __init__(self, API_singleton):
-        self.ibl_api = API_singleton
-        
+
     def load(self):
         return "Behavior data loaded"
 
